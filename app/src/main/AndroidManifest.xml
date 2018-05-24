@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pablo.proyectoseminario">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +23,11 @@
         </activity>
         <activity android:name=".LoginCliente" />
         <activity android:name=".LoginAgente" />
-        <activity android:name=".Agente"></activity>
+        <activity android:name=".Agente" />
+        <activity
+            android:name=".LoginResult"
+            android:label="@string/title_activity_login_result"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
