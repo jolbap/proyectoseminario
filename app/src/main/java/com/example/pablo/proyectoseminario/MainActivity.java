@@ -75,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
         Intent inte3 = new Intent(this, LoginAgente.class);
         startActivity(inte3);
     }
-
+    public void verCasa(View v){
+        Intent inte4 = new Intent(this, VerCasas.class);
+        startActivity(inte4);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

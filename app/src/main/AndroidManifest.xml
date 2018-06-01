@@ -27,6 +27,10 @@
         <activity
             android:name=".LoginResult"
             android:label="@string/title_activity_login_result"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".VerCasas"
+            android:label="@string/title_activity_ver_casas"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
