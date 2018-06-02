@@ -21,32 +21,18 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextdescripcion" />
 
     <EditText
-        android:id="@+id/editTextid"
-        android:layout_width="wrap_content"
+        android:id="@+id/editTextcanthabit"
+        android:layout_width="226dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="25dp"
         android:ems="10"
+        android:hint="Cantidad de Habitaciones"
         android:inputType="textPersonName"
-        android:text="id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <EditText
-        android:id="@+id/editTextcanthabit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="cantidad de habitaciones"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextid" />
 
     <EditText
         android:id="@+id/editTextcantbaños"
@@ -56,8 +42,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Cantidad de Baños"
         android:inputType="textPersonName"
-        android:text="cantidad de baños"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextcanthabit" />
@@ -70,8 +56,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Superficie"
         android:inputType="textPersonName"
-        android:text="superficie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextcantbaños" />
@@ -84,8 +70,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Precio"
         android:inputType="textPersonName"
-        android:text="precio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextsuperficie" />
@@ -98,8 +84,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Año de Construccion"
         android:inputType="textPersonName"
-        android:text="año de construccion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextprecio" />
@@ -112,22 +98,24 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Descripcion"
         android:inputType="textPersonName"
-        android:text="descripcion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextaño" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="216dp"
-        android:layout_height="23dp"
+        android:layout_width="245dp"
+        android:layout_height="41dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="REGISTRO DE CASA"
-        android:textSize="20dp"
         android:textAlignment="center"
+        android:textColor="#f10303"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

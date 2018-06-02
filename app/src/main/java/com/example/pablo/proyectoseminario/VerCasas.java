@@ -1,6 +1,7 @@
 package com.example.pablo.proyectoseminario;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
@@ -8,8 +9,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.pablo.proyectoseminario.DataDetaild.Detaild;
 import com.example.pablo.proyectoseminario.ListDataSource.CustomAdapter;
 import com.example.pablo.proyectoseminario.ListDataSource.ItemList;
 import com.loopj.android.http.AsyncHttpClient;
@@ -23,7 +26,7 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class VerCasas extends AppCompatActivity {
+public class VerCasas extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView LIST;
     private ArrayList<ItemList> LISTINFO;
@@ -55,6 +58,7 @@ public class VerCasas extends AppCompatActivity {
     private void loadComponents() {
         LIST = (ListView) this.findViewById(R.id.listviewlayout);
         loadInitialRestData();
+        LIST.setOnItemClickListener(this);
     }
 
     private void loadInitialRestData() {
@@ -85,4 +89,11 @@ public class VerCasas extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String idC = this.LISTINFO.get(position).getIdC();
+        Intent mDetaild = new Intent(this, com.example.pablo.proyectoseminario.Detaild.class);
+        mDetaild.putExtra("id", idC);
+        this.startActivity(mDetaild);
+    }
 }

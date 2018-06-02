@@ -27,7 +27,6 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
     ProgressDialog progressDialog;
     public String resultadoapi="";
     public String linkrequestAPI="";
-    public String id = "";
     public String canthabit = "";
     public String cantbaños = "";
     public String superficie = "";
@@ -35,10 +34,9 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
     public String año = "";
     public String descripcion = "";
 
-    public ServicioTask(Context ctx, String linkAPI, String id, String canthabit, String cantbaños, String superficie, String precio, String año, String descripcion ){
+    public ServicioTask(Context ctx, String linkAPI, String canthabit, String cantbaños, String superficie, String precio, String año, String descripcion ){
         this.httpContext = ctx;
         this.linkrequestAPI = linkAPI;
-        this.id = id;
         this.canthabit = canthabit;
         this.cantbaños = cantbaños;
         this.superficie = superficie;
@@ -62,7 +60,6 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
             url = new URL(wsURL);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             JSONObject parametrosPost = new JSONObject();
-            parametrosPost.put("id",id);
             parametrosPost.put("canthabit",canthabit);
             parametrosPost.put("cantbaños",cantbaños);
             parametrosPost.put("superficie",superficie);

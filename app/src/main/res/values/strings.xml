@@ -8,4 +8,5 @@
     <string name="error_login">El sistema no pudo conectarse</string>
     <string name="title_activity_login_result">LoginResult</string>
     <string name="title_activity_ver_casas">VerCasas</string>
+    <string name="title_activity_detaild">Detaild</string>
 </resources>

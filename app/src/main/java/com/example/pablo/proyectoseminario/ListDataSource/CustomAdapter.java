@@ -40,7 +40,9 @@ public class CustomAdapter extends BaseAdapter{
             LayoutInflater inflate = (LayoutInflater) this.CONTEXT.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflate.inflate(R.layout.item_layout, null);
         }
+        TextView idC = (TextView)convertView.findViewById(R.id.idtxt);
         TextView precio = (TextView)convertView.findViewById(R.id.preciotxt);
+        idC.setText(this.LIST.get(position).getIdC());
         precio.setText(this.LIST.get(position).getPrecio());
         return convertView;
     }

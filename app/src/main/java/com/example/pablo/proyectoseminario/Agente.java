@@ -14,7 +14,6 @@ public class Agente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agente);
-        editTextid = findViewById(R.id.editTextid);
         editTextcanthabit = findViewById(R.id.editTextcanthabit);
         editTextcantbaños = findViewById(R.id.editTextcantbaños);
         editTextsuperficie = findViewById(R.id.editTextsuperficie);
@@ -32,7 +31,6 @@ public class Agente extends AppCompatActivity {
     }
     public void consumirServicio(){
 
-        String id = editTextid.getText().toString();
         String canthabit = editTextcanthabit.getText().toString();
         String cantbaños = editTextcantbaños.getText().toString();
         String superficie = editTextsuperficie.getText().toString();
@@ -40,7 +38,7 @@ public class Agente extends AppCompatActivity {
         String año = editTextaño.getText().toString();
         String descripcion = editTextdescripcion.getText().toString();
 
-        ServicioTask servicioTask = new ServicioTask(this,"http://192.168.1.3:7777/api/v1.0/homes", id, canthabit, cantbaños, superficie, precio, año, descripcion);
+        ServicioTask servicioTask = new ServicioTask(this,"http://192.168.1.2:7777/api/v1.0/homes", canthabit, cantbaños, superficie, precio, año, descripcion);
         servicioTask.execute();
     }
 }
