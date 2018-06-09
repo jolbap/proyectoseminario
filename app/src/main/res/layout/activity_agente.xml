@@ -9,16 +9,16 @@
     <Button
         android:id="@+id/buttonagregar"
         android:layout_width="155dp"
-        android:layout_height="70dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="50dp"
         android:text="Agregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextdescripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextdireccion" />
 
     <EditText
         android:id="@+id/editTextcanthabit"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Cantidad de Habitaciones"
         android:inputType="textPersonName"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Cantidad de Baños"
         android:inputType="textPersonName"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Superficie"
         android:inputType="textPersonName"
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Precio"
         android:inputType="textPersonName"
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Año de Construccion"
         android:inputType="textPersonName"
@@ -96,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Descripcion"
         android:inputType="textPersonName"
@@ -104,10 +104,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextaño" />
 
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="245dp"
-        android:layout_height="41dp"
+        android:layout_height="33dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -120,5 +121,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/editTextdireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="Direccion"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextdescripcion" />
+
+    <EditText
+        android:id="@+id/editTextlat"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Latitud"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextdireccion" />
+
+    <EditText
+        android:id="@+id/editTextlon"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Longitud"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextdireccion" />
 
 </android.support.constraint.ConstraintLayout>

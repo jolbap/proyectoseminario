@@ -5,11 +5,11 @@ public class Detaild {
     private String canthabit;
     private String cantbaños;
     private String superficie;
-    private String precio;
+    private int precio;
     private String año;
     private String descripcion;
 
-    public Detaild (String idC, String canthabit, String cantbaños, String superficie, String precio, String año, String descripcion) {
+    public Detaild (String idC, String canthabit, String cantbaños, String superficie, int precio, String año, String descripcion) {
         this.idC = idC;
         this.canthabit = canthabit;
         this.cantbaños = cantbaños;
@@ -31,7 +31,7 @@ public class Detaild {
     public String getSuperficie(){
         return this.superficie;
     }
-    public String getPrecio(){
+    public int getPrecio(){
         return this.precio;
     }
     public String getAño(){

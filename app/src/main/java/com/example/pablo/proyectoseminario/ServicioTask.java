@@ -30,11 +30,14 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
     public String canthabit = "";
     public String cantbaños = "";
     public String superficie = "";
-    public String precio = "";
+    public int precio = 0;
     public String año = "";
     public String descripcion = "";
+    public String direccion = "";
+    public double lat = 0;
+    public double lon = 0;
 
-    public ServicioTask(Context ctx, String linkAPI, String canthabit, String cantbaños, String superficie, String precio, String año, String descripcion ){
+    public ServicioTask(Context ctx, String linkAPI, String canthabit, String cantbaños, String superficie, int precio, String año, String descripcion, String direccion, double lat, double lon ){
         this.httpContext = ctx;
         this.linkrequestAPI = linkAPI;
         this.canthabit = canthabit;
@@ -43,6 +46,9 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
         this.precio = precio;
         this.año = año;
         this.descripcion = descripcion;
+        this.direccion = direccion;
+        this.lat = lat;
+        this.lon = lon;
     }
     @Override
     protected void onPreExecute(){
@@ -66,6 +72,9 @@ public class ServicioTask extends AsyncTask<Void, Void, String> {
             parametrosPost.put("precio",precio);
             parametrosPost.put("año",año);
             parametrosPost.put("descripcion",descripcion);
+            parametrosPost.put("direccion",direccion);
+            parametrosPost.put("lat",lat);
+            parametrosPost.put("lon",lon);
 
             urlConnection.setReadTimeout(15000);
             urlConnection.setConnectTimeout(15000);

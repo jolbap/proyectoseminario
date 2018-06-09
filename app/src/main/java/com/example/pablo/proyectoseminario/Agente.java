@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 public class Agente extends AppCompatActivity {
 
-    EditText editTextid, editTextcanthabit, editTextcantbaños, editTextsuperficie, editTextprecio, editTextaño, editTextdescripcion;
+    EditText editTextid, editTextcanthabit, editTextcantbaños, editTextsuperficie, editTextprecio, editTextaño, editTextdescripcion, editTextdireccion, editTextlat, editTextlon;
     Button buttonagregar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,9 @@ public class Agente extends AppCompatActivity {
         editTextprecio = findViewById(R.id.editTextprecio);
         editTextaño = findViewById(R.id.editTextaño);
         editTextdescripcion = findViewById(R.id.editTextdescripcion);
+        editTextdireccion = findViewById(R.id.editTextdireccion);
+        editTextlat = findViewById(R.id.editTextlat);
+        editTextlon = findViewById(R.id.editTextlon);
         buttonagregar = findViewById(R.id.buttonagregar);
 
         buttonagregar.setOnClickListener(new View.OnClickListener() {
@@ -34,11 +37,14 @@ public class Agente extends AppCompatActivity {
         String canthabit = editTextcanthabit.getText().toString();
         String cantbaños = editTextcantbaños.getText().toString();
         String superficie = editTextsuperficie.getText().toString();
-        String precio = editTextprecio.getText().toString();
+        int precio = Integer.parseInt(editTextprecio.getText().toString());
         String año = editTextaño.getText().toString();
         String descripcion = editTextdescripcion.getText().toString();
+        String direccion = editTextdireccion.getText().toString();
+        double lat = Double.parseDouble(editTextlat.getText().toString());
+        double lon = Double.parseDouble(editTextlon.getText().toString());
 
-        ServicioTask servicioTask = new ServicioTask(this,"http://192.168.1.2:7777/api/v1.0/homes", canthabit, cantbaños, superficie, precio, año, descripcion);
+        ServicioTask servicioTask = new ServicioTask(this,"http://192.168.1.2:7777/api/v1.0/homes", canthabit, cantbaños, superficie, precio, año, descripcion, direccion, lat, lon);
         servicioTask.execute();
     }
 }

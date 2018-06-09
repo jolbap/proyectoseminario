@@ -43,7 +43,7 @@ public class CustomAdapter extends BaseAdapter{
         TextView idC = (TextView)convertView.findViewById(R.id.idtxt);
         TextView precio = (TextView)convertView.findViewById(R.id.preciotxt);
         idC.setText(this.LIST.get(position).getIdC());
-        precio.setText(this.LIST.get(position).getPrecio());
+        precio.setText(this.LIST.get(position).getPrecio()+"");
         return convertView;
     }
 }

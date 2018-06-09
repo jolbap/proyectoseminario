@@ -73,9 +73,12 @@ public class VerCasas extends AppCompatActivity implements AdapterView.OnItemCli
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject itemJson = response.getJSONObject(i);
                         String id = itemJson.getString("_id");
-                        String precio = itemJson.getString("precio");
+                        int precio = itemJson.getInt("precio");
+                        String direccion = itemJson.getString("direccion");
+                        double lat = itemJson.getDouble("lat");
+                        double lon = itemJson.getDouble("lon");
 
-                        ItemList item = new ItemList(id, precio);
+                        ItemList item = new ItemList(id, precio, direccion, lat, lon);
 
                         LISTINFO.add(item);
                     }

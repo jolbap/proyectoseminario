@@ -55,7 +55,7 @@ public class Detaild extends AppCompatActivity {
                             String canthabit = response.getString("canthabit");
                             String cantbaños = response.getString("cantbaños");
                             String superficie = response.getString("superficie");
-                            String precio = response.getString("precio");
+                            int precio = response.getInt("precio");
                             String año = response.getString("año");
                             String descripcion = response.getString("descripcion");
 
@@ -74,7 +74,7 @@ public class Detaild extends AppCompatActivity {
         this.canthabit.setText(DATA.getCanthabit());
         this.cantbaños.setText(DATA.getCantbaños());
         this.superficie.setText(DATA.getSuperficie());
-        this.precio.setText(DATA.getPrecio());
+        this.precio.setText(DATA.getPrecio()+"");
         this.año.setText(DATA.getAño());
         this.descripcion.setText(DATA.getDescripcion());
 
