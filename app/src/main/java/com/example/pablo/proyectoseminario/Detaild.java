@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.pablo.proyectoseminario.Utils.ParamsConnection;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -47,7 +48,7 @@ public class Detaild extends AppCompatActivity {
 
     private void loadAsyncData(){
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://192.168.1.15:7777/api/v1.0/homes/" + this.idC,
+        client.get(ParamsConnection.HOST + this.idC,
                 new JsonHttpResponseHandler() {
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {

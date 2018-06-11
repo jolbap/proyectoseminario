@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.example.pablo.proyectoseminario.ListDataSource.CustomAdapter;
 import com.example.pablo.proyectoseminario.ListDataSource.ItemList;
+import com.example.pablo.proyectoseminario.Utils.ParamsConnection;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class VerPorId extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class BorrarBuscarCasaPorId extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     private ListView LIST;
     private ArrayList<ItemList> LISTINFO;
@@ -38,7 +39,7 @@ public class VerPorId extends AppCompatActivity implements AdapterView.OnItemCli
         root = this;
         LISTINFO = new ArrayList<ItemList>();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ver_por_id);
+        setContentView(R.layout.activity_borrar_buscar_casa_por_id);
 
         loadComponents();
     }
@@ -54,11 +55,28 @@ public class VerPorId extends AppCompatActivity implements AdapterView.OnItemCli
                 loadInitialRestData(buscar);
             }
         });
+
+        Button btnborrar = findViewById(R.id.btnborrar);
+        btnborrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String buscar = editTextbuscar.getText().toString();
+                borrar(buscar);
+            }
+        });
     }
 
-    private void loadInitialRestData(String keystr) {
+    private void borrar(String b){
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://192.168.1.15:7777/api/v1.0/homes/" + keystr;
+        String url = ParamsConnection.HOST + b;
+        client.delete(url, new JsonHttpResponseHandler(){
+
+        });
+    }
+
+    private void loadInitialRestData(String b) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        String url = ParamsConnection.HOST + b;
         client.get(url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

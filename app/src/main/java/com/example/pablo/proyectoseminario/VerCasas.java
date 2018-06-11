@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.example.pablo.proyectoseminario.DataDetaild.Detaild;
 import com.example.pablo.proyectoseminario.ListDataSource.CustomAdapter;
 import com.example.pablo.proyectoseminario.ListDataSource.ItemList;
+import com.example.pablo.proyectoseminario.Utils.ParamsConnection;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -63,7 +64,7 @@ public class VerCasas extends AppCompatActivity implements AdapterView.OnItemCli
 
     private void loadInitialRestData() {
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://192.168.1.15:7777/api/v1.0/homes";
+        String url = ParamsConnection.HOST;
         client.get(url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {

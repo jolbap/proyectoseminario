@@ -17,7 +17,7 @@ public class FuncionesAgente extends AppCompatActivity {
         startActivity(inte6);
     }
     public void verCasaPorId(View v){
-        Intent inte7 = new Intent(this, VerPorId.class);
+        Intent inte7 = new Intent(this, BorrarBuscarCasaPorId.class);
         startActivity(inte7);
     }
 }

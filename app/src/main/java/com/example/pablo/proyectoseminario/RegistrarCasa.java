@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.pablo.proyectoseminario.Utils.ParamsConnection;
+
 public class RegistrarCasa extends AppCompatActivity {
 
     EditText editTextid, editTextcanthabit, editTextcantbaños, editTextsuperficie, editTextprecio, editTextaño, editTextdescripcion, editTextdireccion, editTextlat, editTextlon;
@@ -44,7 +46,7 @@ public class RegistrarCasa extends AppCompatActivity {
         double lat = Double.parseDouble(editTextlat.getText().toString());
         double lon = Double.parseDouble(editTextlon.getText().toString());
 
-        ServicioTask servicioTask = new ServicioTask(this,"http://192.168.1.15:7777/api/v1.0/homes", canthabit, cantbaños, superficie, precio, año, descripcion, direccion, lat, lon);
+        ServicioTask servicioTask = new ServicioTask(this, ParamsConnection.HOST, canthabit, cantbaños, superficie, precio, año, descripcion, direccion, lat, lon);
         servicioTask.execute();
     }
 }

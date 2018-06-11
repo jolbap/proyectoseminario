@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.example.pablo.proyectoseminario.ListDataSource.ItemList;
+import com.example.pablo.proyectoseminario.Utils.ParamsConnection;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -54,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://192.168.1.15:7777/api/v1.0/homes";
+        String url = ParamsConnection.HOST;
         client.get(url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
