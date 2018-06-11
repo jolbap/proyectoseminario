@@ -59,7 +59,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".FuncionesAgente" />
-        <activity android:name=".BorrarBuscarCasaPorId"></activity>
+        <activity android:name=".BorrarBuscarCasaPorId" />
+        <activity android:name=".VerCasasPorPrecio"></activity>
     </application>
 
 </manifest>

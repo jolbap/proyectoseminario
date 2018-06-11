@@ -83,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
         Intent inte5 = new Intent(this, MapsActivity.class);
         startActivity(inte5);
     }
+    public void verCasasPorPrecio(View v){
+        Intent inte6 = new Intent(this, VerCasasPorPrecio.class);
+        startActivity(inte6);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
