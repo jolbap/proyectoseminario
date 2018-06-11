@@ -47,7 +47,7 @@ public class Detaild extends AppCompatActivity {
 
     private void loadAsyncData(){
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://192.168.1.2:7777/api/v1.0/homes/" + this.idC,
+        client.get("http://192.168.1.15:7777/api/v1.0/homes/" + this.idC,
                 new JsonHttpResponseHandler() {
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {

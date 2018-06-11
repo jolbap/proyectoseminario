@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".LoginCliente" />
         <activity android:name=".LoginAgente" />
-        <activity android:name=".Agente" />
+        <activity android:name=".RegistrarCasa" />
         <activity
             android:name=".LoginResult"
             android:label="@string/title_activity_login_result"
@@ -57,7 +57,9 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".FuncionesAgente" />
+        <activity android:name=".VerPorId"></activity>
     </application>
 
 </manifest>

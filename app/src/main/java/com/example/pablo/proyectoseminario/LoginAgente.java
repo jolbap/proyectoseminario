@@ -22,7 +22,7 @@ public class LoginAgente extends AppCompatActivity {
                 String usuario = ((EditText)findViewById(R.id.txtagente)).getText().toString();
                 String password = ((EditText)findViewById(R.id.txtpassword)).getText().toString();
                 if (usuario.equals("pablo") && password.equals("1234")){
-                    Intent nuevoform = new Intent(LoginAgente.this, Agente.class);
+                    Intent nuevoform = new Intent(LoginAgente.this, FuncionesAgente.class);
                     startActivity(nuevoform);
                 }else {
                     Toast.makeText(getApplicationContext(), "Usuario Incorrecto", Toast.LENGTH_SHORT).show();

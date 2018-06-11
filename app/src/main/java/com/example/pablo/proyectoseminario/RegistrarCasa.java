@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Agente extends AppCompatActivity {
+public class RegistrarCasa extends AppCompatActivity {
 
     EditText editTextid, editTextcanthabit, editTextcantbaños, editTextsuperficie, editTextprecio, editTextaño, editTextdescripcion, editTextdireccion, editTextlat, editTextlon;
     Button buttonagregar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agente);
+        setContentView(R.layout.activity_registrar_casa);
         editTextcanthabit = findViewById(R.id.editTextcanthabit);
         editTextcantbaños = findViewById(R.id.editTextcantbaños);
         editTextsuperficie = findViewById(R.id.editTextsuperficie);
@@ -44,7 +44,7 @@ public class Agente extends AppCompatActivity {
         double lat = Double.parseDouble(editTextlat.getText().toString());
         double lon = Double.parseDouble(editTextlon.getText().toString());
 
-        ServicioTask servicioTask = new ServicioTask(this,"http://192.168.1.2:7777/api/v1.0/homes", canthabit, cantbaños, superficie, precio, año, descripcion, direccion, lat, lon);
+        ServicioTask servicioTask = new ServicioTask(this,"http://192.168.1.15:7777/api/v1.0/homes", canthabit, cantbaños, superficie, precio, año, descripcion, direccion, lat, lon);
         servicioTask.execute();
     }
 }
