@@ -3,6 +3,7 @@ package com.example.pablo.proyectoseminario;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -23,6 +24,7 @@ public class Detaild extends AppCompatActivity {
     protected TextView idH, canthabit, cantbaños, superficie, precio, año, descripcion;
     protected Detaild root;
     protected com.example.pablo.proyectoseminario.DataDetaild.Detaild DATA;
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,10 @@ public class Detaild extends AppCompatActivity {
         idC = this.getIntent().getExtras().getString("id");
         loadComponents();
         loadAsyncData();
+
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(viewPagerAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
