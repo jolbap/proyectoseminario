@@ -111,7 +111,7 @@ public class Camara extends AppCompatActivity implements View.OnClickListener{
 
                                 String path = response.getString("path");
                                 if (path != null) {
-                                    Intent profile = new Intent(root, MainActivity.class);
+                                    Intent profile = new Intent(root, Camara.class);
                                     root.startActivity(profile);
                                 }
                             }catch(JSONException json){
@@ -190,5 +190,9 @@ public class Camara extends AppCompatActivity implements View.OnClickListener{
             IMG_CONTAINER.setImageBitmap(img);
 
         }
+    }
+    public void salirCamara(View v){
+        Intent inte = new Intent(this, MainActivity.class);
+        startActivity(inte);
     }
 }

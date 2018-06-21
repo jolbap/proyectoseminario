@@ -88,7 +88,8 @@ public class BorrarBuscarCasaPorId extends AppCompatActivity implements AdapterV
                     String direccion = response.getString("direccion");
                     double lat = response.getDouble("lat");
                     double lon = response.getDouble("lon");
-                    ItemList item = new ItemList(id, precio, direccion, lat, lon);
+                    String url = "http://192.168.1.15:7777" + (String)response.getJSONArray("gallery").get(0);
+                    ItemList item = new ItemList(id, precio, direccion, lat, lon, url);
                     LISTINFO.add(item);
                     ADAPTER = new CustomAdapter(root, LISTINFO);
                     LIST.setAdapter(ADAPTER);

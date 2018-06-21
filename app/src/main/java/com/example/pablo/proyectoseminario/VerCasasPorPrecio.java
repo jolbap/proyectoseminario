@@ -133,9 +133,10 @@ public class VerCasasPorPrecio extends AppCompatActivity implements AdapterView.
                         String direccion = itemJson.getString("direccion");
                         double lat = itemJson.getDouble("lat");
                         double lon = itemJson.getDouble("lon");
+                        String url = "http://192.168.1.15:7777" + (String)itemJson.getJSONArray("gallery").get(0);
 
                         if (precio >= d && precio <= h) {
-                            ItemList item = new ItemList(id, precio, direccion, lat, lon);
+                            ItemList item = new ItemList(id, precio, direccion, lat, lon, url);
 
                             LISTINFO.add(item);
                         }
