@@ -1,5 +1,6 @@
 package com.example.pablo.proyectoseminario;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -87,6 +88,12 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg {
         });
 
     }
+
+    public void contactar(View v){
+        Intent inte = new Intent(this, LoginCliente.class);
+        startActivity(inte);
+    }
+
     public void loadAsyncData(){
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(ParamsConnection.HOST + this.idC,

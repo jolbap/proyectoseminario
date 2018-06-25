@@ -57,7 +57,7 @@ public class LoginResult extends AppCompatActivity implements OnLoadImage {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main = new Intent(root, MainActivity.class);
+                Intent main = new Intent(root, LlamarAgente.class);
                 root.startActivity(main);
             }
         });
