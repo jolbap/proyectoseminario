@@ -41,10 +41,6 @@
             android:name=".VerCasas"
             android:label="@string/title_activity_ver_casas"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Detaild"
-            android:label="@string/title_activity_detaild"
-            android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -75,6 +71,10 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
+        <activity
+            android:name=".Detalle"
+            android:label="@string/title_activity_detalle"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

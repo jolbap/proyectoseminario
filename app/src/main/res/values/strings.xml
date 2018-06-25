@@ -11,4 +11,5 @@
     <string name="title_activity_detaild">Detaild</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_camara">Camara</string>
+    <string name="title_activity_detalle">Detalle</string>
 </resources>

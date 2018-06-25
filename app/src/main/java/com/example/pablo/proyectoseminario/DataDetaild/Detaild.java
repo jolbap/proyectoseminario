@@ -1,5 +1,9 @@
 package com.example.pablo.proyectoseminario.DataDetaild;
 
+import android.graphics.Bitmap;
+
+import java.util.ArrayList;
+
 public class Detaild {
     private String idC;
     private String canthabit;
@@ -9,7 +13,10 @@ public class Detaild {
     private String año;
     private String descripcion;
 
-    public Detaild (String idC, String canthabit, String cantbaños, String superficie, int precio, String año, String descripcion) {
+    private ArrayList<String> url;
+    private ArrayList<Bitmap> img;
+
+    public Detaild (String idC, String canthabit, String cantbaños, String superficie, int precio, String año, String descripcion, ArrayList<String> urlimg) {
         this.idC = idC;
         this.canthabit = canthabit;
         this.cantbaños = cantbaños;
@@ -17,7 +24,11 @@ public class Detaild {
         this.precio = precio;
         this.año = año;
         this.descripcion = descripcion;
+        this.url = urlimg;
 
+    }
+    public void setImg(ArrayList<Bitmap> img) {
+        this.img = img;
     }
     public String getIdC(){
         return this.idC;
@@ -39,5 +50,15 @@ public class Detaild {
     }
     public String getDescripcion(){
         return this.descripcion;
+    }
+    public ArrayList<String> getUrlimg() {
+        return this.url;
+    }
+
+    public ArrayList<Bitmap> getImg() {
+        return this.img;
+    }
+    public ArrayList<Bitmap> getBitmap(){
+        return this.img;
     }
 }

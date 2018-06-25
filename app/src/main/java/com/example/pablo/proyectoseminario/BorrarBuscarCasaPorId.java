@@ -17,6 +17,7 @@ import com.example.pablo.proyectoseminario.Utils.ParamsConnection;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,7 +28,6 @@ import cz.msebera.android.httpclient.Header;
 public class BorrarBuscarCasaPorId extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     private ListView LIST;
-    private ArrayList<ItemList> LISTINFO;
     private Context root;
     private CustomAdapter ADAPTER;
     EditText editTextbuscar;
@@ -37,7 +37,7 @@ public class BorrarBuscarCasaPorId extends AppCompatActivity implements AdapterV
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         root = this;
-        LISTINFO = new ArrayList<ItemList>();
+        ParamsConnection.LISTDATA = new ArrayList<ItemList>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_borrar_buscar_casa_por_id);
 
@@ -82,16 +82,20 @@ public class BorrarBuscarCasaPorId extends AppCompatActivity implements AdapterV
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
                 try {
-                    LISTINFO.clear();
+                    ParamsConnection.LISTDATA.clear();
                     int precio = response.getInt("precio");
                     String id = response.getString("_id");
                     String direccion = response.getString("direccion");
                     double lat = response.getDouble("lat");
                     double lon = response.getDouble("lon");
-                    String url = "http://192.168.1.15:7777" + (String)response.getJSONArray("gallery").get(0);
-                    ItemList item = new ItemList(id, precio, direccion, lat, lon, url);
-                    LISTINFO.add(item);
-                    ADAPTER = new CustomAdapter(root, LISTINFO);
+                    JSONArray listGallery = response.getJSONArray("gallery");
+                    ArrayList<String> urllist =  new ArrayList<String>();
+                    for (int j = 0; j < listGallery.length(); j ++) {
+                        urllist.add("http://192.168.1.15:7777" + listGallery.getString(j));
+                    }
+                    ItemList item = new ItemList(id, precio, direccion, lat, lon, urllist);
+                    ParamsConnection.LISTDATA.add(item);
+                    ADAPTER = new CustomAdapter(root, ParamsConnection.LISTDATA);
                     LIST.setAdapter(ADAPTER);
 
                 }catch (JSONException e){
@@ -103,9 +107,8 @@ public class BorrarBuscarCasaPorId extends AppCompatActivity implements AdapterV
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String idC = this.LISTINFO.get(position).getIdC();
-        Intent mDetaild = new Intent(this, com.example.pablo.proyectoseminario.Detaild.class);
-        mDetaild.putExtra("id", idC);
+        Intent mDetaild = new Intent(this,Detalle.class);
+        mDetaild.putExtra("id", position);
         this.startActivity(mDetaild);
     }
 }

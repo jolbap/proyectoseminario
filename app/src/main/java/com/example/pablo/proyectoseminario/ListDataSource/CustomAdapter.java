@@ -48,20 +48,22 @@ public class CustomAdapter extends BaseAdapter implements OnLoadCompleImg{
 
         idC.setText(this.LIST.get(position).getIdC());
         precio.setText(this.LIST.get(position).getPrecio()+"");
+
         if (this.LIST.get(position).getImg() == null) {
             //Load IMG
             LoaderImg loader = new LoaderImg();
             loader.setOnloadCompleteImg(img , position,this);
-            loader.execute(this.LIST.get(position).getUrlimg());
+            loader.execute(this.LIST.get(position).getUrlimg().get(0));
         } else {
-            img.setImageBitmap(this.LIST.get(position).getImg());
+            img.setImageBitmap(this.LIST.get(position).getImg().get(0));
         }
         return convertView;
     }
     @Override
     public void OnloadCompleteImgResult(ImageView img, int position, Bitmap imgsourceimg) {
-
-        this.LIST.get(position).setImg(imgsourceimg);
+        ArrayList<Bitmap> source = new ArrayList<>();
+        source.add(imgsourceimg);
+        this.LIST.get(position).setImg(source);
         img.setImageBitmap(imgsourceimg);
     }
 }

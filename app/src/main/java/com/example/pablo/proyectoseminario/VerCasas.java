@@ -30,7 +30,6 @@ import cz.msebera.android.httpclient.Header;
 public class VerCasas extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView LIST;
-    private ArrayList<ItemList> LISTINFO;
     private Context root;
     private CustomAdapter ADAPTER;
     @Override
@@ -39,7 +38,7 @@ public class VerCasas extends AppCompatActivity implements AdapterView.OnItemCli
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         root = this;
-        LISTINFO = new ArrayList<ItemList>();
+        ParamsConnection.LISTDATA = new ArrayList<ItemList>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_casas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -70,7 +69,7 @@ public class VerCasas extends AppCompatActivity implements AdapterView.OnItemCli
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
 
                 try {
-                    LISTINFO.clear();
+                    ParamsConnection.LISTDATA.clear();
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject itemJson = response.getJSONObject(i);
                         String id = itemJson.getString("_id");
@@ -78,13 +77,16 @@ public class VerCasas extends AppCompatActivity implements AdapterView.OnItemCli
                         String direccion = itemJson.getString("direccion");
                         double lat = itemJson.getDouble("lat");
                         double lon = itemJson.getDouble("lon");
-                        String url = "http://192.168.1.15:7777" + (String)itemJson.getJSONArray("gallery").get(0);
+                        JSONArray listGallery = itemJson.getJSONArray("gallery");
+                        ArrayList<String> urllist =  new ArrayList<String>();
+                        for (int j = 0; j < listGallery.length(); j ++) {
+                            urllist.add("http://192.168.1.15:7777" + listGallery.getString(j));
+                        }
+                        ItemList item = new ItemList(id, precio, direccion, lat, lon, urllist);
 
-                        ItemList item = new ItemList(id, precio, direccion, lat, lon, url);
-
-                        LISTINFO.add(item);
+                        ParamsConnection.LISTDATA.add(item);
                     }
-                    ADAPTER = new CustomAdapter(root, LISTINFO);
+                    ADAPTER = new CustomAdapter(root, ParamsConnection.LISTDATA);
                     LIST.setAdapter(ADAPTER);
 
                 }catch (JSONException e){
@@ -96,9 +98,8 @@ public class VerCasas extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String idC = this.LISTINFO.get(position).getIdC();
-        Intent mDetaild = new Intent(this, com.example.pablo.proyectoseminario.Detaild.class);
-        mDetaild.putExtra("id", idC);
+        Intent mDetaild = new Intent(this,Detalle.class);
+        mDetaild.putExtra("id", position);
         this.startActivity(mDetaild);
     }
 }

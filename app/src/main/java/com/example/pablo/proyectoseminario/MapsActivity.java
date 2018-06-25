@@ -26,12 +26,11 @@ import cz.msebera.android.httpclient.Header;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private ArrayList<ItemList> LISTINFO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        LISTINFO = new ArrayList<ItemList>();
+        ParamsConnection.LISTDATA = new ArrayList<ItemList>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -61,7 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
 
                 try {
-                    LISTINFO.clear();
+                    ParamsConnection.LISTDATA.clear();
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject itemJson = response.getJSONObject(i);
                         String id = itemJson.getString("_id");
@@ -69,20 +68,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         String direccion = itemJson.getString("direccion");
                         double lat = itemJson.getDouble("lat");
                         double lon = itemJson.getDouble("lon");
-                        String url = "http://192.168.1.15:7777" + (String)itemJson.getJSONArray("gallery").get(0);
+                        JSONArray listGallery = itemJson.getJSONArray("gallery");
+                        ArrayList<String> urllist =  new ArrayList<String>();
+                        for (int j = 0; j < listGallery.length(); j ++) {
+                            urllist.add("http://192.168.1.15:7777" + listGallery.getString(j));
+                        }
+                        ItemList item = new ItemList(id, precio, direccion, lat, lon, urllist);
 
-                        ItemList item = new ItemList(id, precio, direccion, lat, lon, url);
-
-                        LISTINFO.add(item);
+                        ParamsConnection.LISTDATA.add(item);
                     }
-                    if (LISTINFO != null && LISTINFO.size() > 0) {
-                        for (int i = 0; i < LISTINFO.size(); i++) {
-                            LatLng position = new LatLng(LISTINFO.get(i).getLat(), LISTINFO.get(i).getLon());
+                    if (ParamsConnection.LISTDATA != null && ParamsConnection.LISTDATA.size() > 0) {
+                        for (int i = 0; i < ParamsConnection.LISTDATA.size(); i++) {
+                            LatLng position = new LatLng(ParamsConnection.LISTDATA.get(i).getLat(), ParamsConnection.LISTDATA.get(i).getLon());
 
                             //mMap.addMarker(new MarkerOptions().position(position).title(LISTINFO.get(i).getDireccion()));
                             mMap.addMarker(new MarkerOptions()
                                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.casa))
-                                    .position(position).title(LISTINFO.get(i).getDireccion()));
+                                    .position(position).title(ParamsConnection.LISTDATA.get(i).getDireccion()));
 
                         }
                     }
