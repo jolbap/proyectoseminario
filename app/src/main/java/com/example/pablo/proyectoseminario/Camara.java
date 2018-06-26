@@ -113,6 +113,7 @@ public class Camara extends AppCompatActivity implements View.OnClickListener{
                                 if (path != null) {
                                     Intent profile = new Intent(root, Camara.class);
                                     root.startActivity(profile);
+                                    Toast.makeText(getApplicationContext(),"Foto Enviada",Toast.LENGTH_LONG).show();
                                 }
                             }catch(JSONException json){
                                 Log.i("ERROR", json.getMessage());
@@ -194,5 +195,6 @@ public class Camara extends AppCompatActivity implements View.OnClickListener{
     public void salirCamara(View v){
         Intent inte = new Intent(this, MainActivity.class);
         startActivity(inte);
+        Toast.makeText(getApplicationContext(),"Casa Registrada",Toast.LENGTH_LONG).show();
     }
 }

@@ -1,5 +1,4 @@
 package com.example.pablo.proyectoseminario;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,8 +35,9 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class Detalle extends AppCompatActivity implements OnLoadCompleImg {
+public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.OnClickListener  {
 
+    public Button btnmapaescuelas;
     public String idC;
     protected TextView idH, canthabit, cantbaños, superficie, precio, año, descripcion;
     protected Detalle root;
@@ -67,6 +68,7 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg {
         idC = ParamsConnection.LISTDATA.get(ID).getIdC();
         loadComponents();
         loadAsyncData();
+        load();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -87,6 +89,11 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg {
             }
         });
 
+    }
+
+    private void load() {
+        btnmapaescuelas = (Button) this.findViewById(R.id.btnmapaescuelas);
+        btnmapaescuelas.setOnClickListener(this);
     }
 
     public void contactar(View v){
@@ -173,6 +180,12 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+        Intent mapa = new Intent(this,MapaEscuelas.class);
+        mapa.putExtra("id", idC);
+        this.startActivity(mapa);
+    }
 
 
     /**

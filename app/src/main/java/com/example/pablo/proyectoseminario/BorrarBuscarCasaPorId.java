@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.pablo.proyectoseminario.ListDataSource.CustomAdapter;
 import com.example.pablo.proyectoseminario.ListDataSource.ItemList;
@@ -62,6 +63,7 @@ public class BorrarBuscarCasaPorId extends AppCompatActivity implements AdapterV
             public void onClick(View v) {
                 String buscar = editTextbuscar.getText().toString();
                 borrar(buscar);
+                Toast.makeText(getApplicationContext(),"Casa Borrada",Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -72,6 +74,9 @@ public class BorrarBuscarCasaPorId extends AppCompatActivity implements AdapterV
         client.delete(url, new JsonHttpResponseHandler(){
 
         });
+        Intent intent = new Intent(root, BorrarBuscarCasaPorId.class);
+        this.startActivity(intent);
+
     }
 
     private void loadInitialRestData(String b) {

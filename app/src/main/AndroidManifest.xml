@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pablo.proyectoseminario">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -76,7 +77,10 @@
             android:name=".Detalle"
             android:label="@string/title_activity_detalle"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LlamarAgente"></activity>
+        <activity android:name=".LlamarAgente" />
+        <activity
+            android:name=".MapaEscuelas"
+            android:label="@string/title_activity_mapa_escuelas"></activity>
     </application>
 
 </manifest>
