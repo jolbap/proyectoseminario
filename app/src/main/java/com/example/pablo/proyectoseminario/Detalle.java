@@ -39,7 +39,7 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
 
     public Button btnmapaescuelas;
     public String idC;
-    protected TextView idH, canthabit, cantbaños, superficie, precio, año, descripcion;
+    protected TextView direccion, canthabit, cantbaños, superficie, precio, año, descripcion;
     protected Detalle root;
     protected com.example.pablo.proyectoseminario.DataDetaild.Detaild DATA;
     /**
@@ -114,13 +114,14 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
                             int precio = response.getInt("precio");
                             String año = response.getString("año");
                             String descripcion = response.getString("descripcion");
+                            String direccion = response.getString("direccion");
                             JSONArray listGallery = response.getJSONArray("gallery");
                             ArrayList<String> urllist =  new ArrayList<String>();
                             for (int j = 0; j < listGallery.length(); j ++) {
-                                urllist.add("http://192.168.1.15:7777" + listGallery.getString(j));
+                                urllist.add("http://192.168.43.109:7777" + listGallery.getString(j));
                             }
 
-                            DATA = new com.example.pablo.proyectoseminario.DataDetaild.Detaild(idH, canthabit, cantbaños, superficie, precio, año, descripcion,urllist);
+                            DATA = new com.example.pablo.proyectoseminario.DataDetaild.Detaild(idH, canthabit, cantbaños, superficie, precio, año, descripcion, urllist, direccion);
                             root.setInformation();
 
                         } catch (JSONException e) {
@@ -130,7 +131,7 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
                 });
     }
     private void setInformation() {
-        this.idH.setText(DATA.getIdC());
+        this.direccion.setText(DATA.getDireccion());
         this.canthabit.setText(DATA.getCanthabit());
         this.cantbaños.setText(DATA.getCantbaños());
         this.superficie.setText(DATA.getSuperficie());
@@ -141,7 +142,7 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
     }
 
     private void loadComponents() {
-        this.idH = (TextView)this.findViewById(R.id.idC);
+        this.direccion = (TextView)this.findViewById(R.id.direccionC);
         this.canthabit = (TextView) this.findViewById(R.id.canthabitC);
         this.cantbaños = (TextView)this.findViewById(R.id.cantbañosC);
         this.superficie = (TextView)this.findViewById(R.id.superficieC);

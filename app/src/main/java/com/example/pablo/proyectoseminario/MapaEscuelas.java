@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.example.pablo.proyectoseminario.ListDataSource.ItemList;
+import com.example.pablo.proyectoseminario.ListDataSource.ItemListSchool;
 import com.example.pablo.proyectoseminario.Utils.ParamsConnection;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,13 +24,15 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MapaEscuelas extends FragmentActivity implements OnMapReadyCallback {
+public class MapaEscuelas extends FragmentActivity implements OnMapReadyCallback{
 
-    private GoogleMap mMap;
+    private GoogleMap mMap, mMap2;
     public String idC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ParamsConnection.LISTDATA = new ArrayList<ItemList>();
+        ParamsConnection.LISTDATASCHOOL = new ArrayList<ItemListSchool>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapa_escuelas);
 
@@ -39,6 +42,7 @@ public class MapaEscuelas extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
+
 
 
     /**
@@ -67,9 +71,9 @@ public class MapaEscuelas extends FragmentActivity implements OnMapReadyCallback
                     double lat = response.getDouble("lat");
                     double lon = response.getDouble("lon");
                     JSONArray listGallery = response.getJSONArray("gallery");
-                    ArrayList<String> urllist =  new ArrayList<String>();
-                    for (int j = 0; j < listGallery.length(); j ++) {
-                        urllist.add("http://192.168.1.15:7777" + listGallery.getString(j));
+                    ArrayList<String> urllist = new ArrayList<String>();
+                    for (int j = 0; j < listGallery.length(); j++) {
+                        urllist.add("http://192.168.43.109:7777" + listGallery.getString(j));
                     }
                     ItemList item = new ItemList(id, precio, direccion, lat, lon, urllist);
                     ParamsConnection.LISTDATA.add(item);
@@ -78,8 +82,42 @@ public class MapaEscuelas extends FragmentActivity implements OnMapReadyCallback
                         mMap.addMarker(new MarkerOptions()
                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.casa))
                                 .position(position).title(ParamsConnection.LISTDATA.get(0).getDireccion()));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position,16));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 17));
                     }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        AsyncHttpClient client2 = new AsyncHttpClient();
+        String url2 = ParamsConnection.HOSTSCHOOL;
+        client2.get(url2, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+
+                try {
+                    ParamsConnection.LISTDATASCHOOL.clear();
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject itemJson = response.getJSONObject(i);
+                        String ide = itemJson.getString("_id");
+                        String escuelanombre = itemJson.getString("escuelanombre");
+                        double late = itemJson.getDouble("late");
+                        double lone = itemJson.getDouble("lone");
+                        ItemListSchool itemschool = new ItemListSchool(ide, escuelanombre, late, lone);
+
+                        ParamsConnection.LISTDATASCHOOL.add(itemschool);
+                    }
+                    if (ParamsConnection.LISTDATASCHOOL != null && ParamsConnection.LISTDATASCHOOL.size() > 0) {
+                        for (int i = 0; i < ParamsConnection.LISTDATASCHOOL.size(); i++) {
+                            LatLng position = new LatLng(ParamsConnection.LISTDATASCHOOL.get(i).getLate(), ParamsConnection.LISTDATASCHOOL.get(i).getLone());
+                            mMap.addMarker(new MarkerOptions()
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.escuela))
+                                    .position(position).title(ParamsConnection.LISTDATASCHOOL.get(i).getEscuelanombre()));
+
+                        }
+                    }
+
                 }catch (JSONException e){
                     e.printStackTrace();
                 }

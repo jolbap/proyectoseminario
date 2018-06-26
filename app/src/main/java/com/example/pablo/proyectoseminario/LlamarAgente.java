@@ -57,7 +57,7 @@ public class LlamarAgente extends AppCompatActivity {
         btnllamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:76160349"));
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:76167178"));
                 if (ActivityCompat.checkSelfPermission(LlamarAgente.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
                   return;
                 }
@@ -71,7 +71,7 @@ public class LlamarAgente extends AppCompatActivity {
         btnenviarmensaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String numero = "tel:76160349";
+                String numero = "tel:76167178";
                 String mensaje = etxmensaje.getText().toString();
                 SmsManager mensSMS = SmsManager.getDefault();
                 mensSMS.sendTextMessage(numero,null,mensaje,null,null);

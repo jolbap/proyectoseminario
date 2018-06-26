@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.example.pablo.proyectoseminario.ListDataSource.ItemList;
+import com.example.pablo.proyectoseminario.ListDataSource.ItemListSchool;
 import com.example.pablo.proyectoseminario.Utils.ParamsConnection;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -52,7 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
         AsyncHttpClient client = new AsyncHttpClient();
         String url = ParamsConnection.HOST;
         client.get(url, new JsonHttpResponseHandler() {
@@ -71,7 +71,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         JSONArray listGallery = itemJson.getJSONArray("gallery");
                         ArrayList<String> urllist =  new ArrayList<String>();
                         for (int j = 0; j < listGallery.length(); j ++) {
-                            urllist.add("http://192.168.1.15:7777" + listGallery.getString(j));
+                            urllist.add("http://192.168.43.109:7777" + listGallery.getString(j));
                         }
                         ItemList item = new ItemList(id, precio, direccion, lat, lon, urllist);
 
@@ -94,7 +94,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         });
-
         // Add a marker in Sydney and move the camera
         LatLng potosi = new LatLng(-19.578297, -65.758633);
         //mMap.addMarker(new MarkerOptions().position(potosi).title("Marker in Potosi"));

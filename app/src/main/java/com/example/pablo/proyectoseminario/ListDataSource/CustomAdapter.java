@@ -42,11 +42,11 @@ public class CustomAdapter extends BaseAdapter implements OnLoadCompleImg{
             LayoutInflater inflate = (LayoutInflater) this.CONTEXT.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflate.inflate(R.layout.item_layout, null);
         }
-        TextView idC = (TextView)convertView.findViewById(R.id.idtxt);
+        TextView direccion = (TextView)convertView.findViewById(R.id.direcciontxt);
         TextView precio = (TextView)convertView.findViewById(R.id.preciotxt);
         ImageView img = convertView.findViewById(R.id.imageView);
 
-        idC.setText(this.LIST.get(position).getIdC());
+        direccion.setText(this.LIST.get(position).getDireccion());
         precio.setText(this.LIST.get(position).getPrecio()+"");
 
         if (this.LIST.get(position).getImg() == null) {

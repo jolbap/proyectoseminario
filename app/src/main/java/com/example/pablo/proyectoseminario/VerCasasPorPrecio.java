@@ -135,7 +135,7 @@ public class VerCasasPorPrecio extends AppCompatActivity implements AdapterView.
                         JSONArray listGallery = itemJson.getJSONArray("gallery");
                         ArrayList<String> urllist =  new ArrayList<String>();
                         for (int j = 0; j < listGallery.length(); j ++) {
-                            urllist.add("http://192.168.1.15:7777" + listGallery.getString(j));
+                            urllist.add("http://192.168.43.109:7777" + listGallery.getString(j));
                         }
 
                         if (precio >= d && precio <= h) {

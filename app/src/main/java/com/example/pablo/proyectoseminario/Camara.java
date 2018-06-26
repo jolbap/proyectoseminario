@@ -133,6 +133,7 @@ public class Camara extends AppCompatActivity implements View.OnClickListener{
         Intent media = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         media.setType("image/");
         startActivityForResult(media.createChooser(media, "Escoja la Aplicacion"), MEDIA_CODE);
+
     }
     private String imageFilePath;
     private File createImageFile() throws IOException {

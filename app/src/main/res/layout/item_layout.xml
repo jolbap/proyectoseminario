@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp">
+    android:layout_height="100dp">
 
     <TextView
         android:id="@+id/textView"
@@ -17,7 +17,7 @@
         android:textColor="#040841"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/idtxt" />
+        app:layout_constraintTop_toBottomOf="@+id/direcciontxt" />
 
     <TextView
         android:id="@+id/preciotxt"
@@ -28,18 +28,19 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/idtxt" />
+        app:layout_constraintTop_toBottomOf="@+id/direcciontxt" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="123dp"
-        android:layout_height="134dp"
+        android:layout_width="120dp"
+        android:layout_height="87dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
@@ -63,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Id: "
+        android:text="Direccion: "
         android:textColor="#040841"
         android:textSize="16dp"
         android:textStyle="bold"
@@ -71,9 +72,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/idtxt"
-        android:layout_width="191dp"
-        android:layout_height="25dp"
+        android:id="@+id/direcciontxt"
+        android:layout_width="125dp"
+        android:layout_height="23dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
