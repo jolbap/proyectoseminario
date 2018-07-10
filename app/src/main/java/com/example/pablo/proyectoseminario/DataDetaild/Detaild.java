@@ -13,11 +13,12 @@ public class Detaild {
     private String año;
     private String descripcion;
     private String direccion;
+    private String nombrevecindario;
 
     private ArrayList<String> url;
     private ArrayList<Bitmap> img;
 
-    public Detaild (String idC, String canthabit, String cantbaños, String superficie, int precio, String año, String descripcion, ArrayList<String> urlimg, String direccion) {
+    public Detaild (String idC, String canthabit, String cantbaños, String superficie, int precio, String año, String descripcion, ArrayList<String> urlimg, String direccion, String nombrevecindario) {
         this.idC = idC;
         this.canthabit = canthabit;
         this.cantbaños = cantbaños;
@@ -27,6 +28,7 @@ public class Detaild {
         this.descripcion = descripcion;
         this.url = urlimg;
         this.direccion = direccion;
+        this.nombrevecindario = nombrevecindario;
 
     }
     public void setImg(ArrayList<Bitmap> img) {
@@ -56,6 +58,10 @@ public class Detaild {
     public String getDireccion(){
         return this.direccion;
     }
+    public String getNombrevecindario() {
+        return nombrevecindario;
+    }
+
     public ArrayList<String> getUrlimg() {
         return this.url;
     }
@@ -66,4 +72,5 @@ public class Detaild {
     public ArrayList<Bitmap> getBitmap(){
         return this.img;
     }
+
 }

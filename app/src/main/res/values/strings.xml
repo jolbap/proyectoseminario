@@ -13,4 +13,12 @@
     <string name="title_activity_camara">Camara</string>
     <string name="title_activity_detalle">Detalle</string>
     <string name="title_activity_mapa_escuelas">Map</string>
+    <string name="title_activity_lat_lon_maps">LatLonMaps</string>
+    <string name="title_activity_maps_vecindarios">Map</string>
+    <string name="title_activity_ver_vecindarios_maps">Map</string>
+    <string name="title_activity_registrar_vecindario">RegistrarVecindario</string>
+    <string name="title_activity_ver_todos_los_vecindarios">Map</string>
+    <string name="title_activity_dentro_vecindario">Map</string>
+    <string name="title_activity_maps_casas_por_vecindario">Map</string>
+    <string name="title_activity_maps_borrar_vecindario">Map</string>
 </resources>

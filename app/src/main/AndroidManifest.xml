@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pablo.proyectoseminario">
 
-    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -14,6 +14,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -21,17 +22,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LoginCliente" />
         <activity android:name=".LoginAgente" />
         <activity android:name=".RegistrarCasa" />
@@ -78,9 +73,41 @@
             android:label="@string/title_activity_detalle"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LlamarAgente" />
+        <activity android:name=".LatLonMaps" />
+        <activity android:name=".MapsSchool" />
         <activity
-            android:name=".MapaEscuelas"
-            android:label="@string/title_activity_mapa_escuelas"></activity>
+            android:name=".MapsVecindarios"
+            android:label="@string/title_activity_maps_vecindarios" />
+        <activity
+            android:name=".VerVecindariosMaps"
+            android:label="@string/title_activity_ver_vecindarios_maps" />
+        <activity android:name=".RegistrarVecindarios" />
+        <activity
+            android:name=".VerTodosLosVecindarios"
+            android:label="@string/title_activity_ver_todos_los_vecindarios" />
+        <activity
+            android:name=".DentroVecindario"
+            android:label="@string/title_activity_dentro_vecindario" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".VerVecindario" />
+        <activity
+            android:name=".MapsCasasPorVecindario"
+            android:label="@string/title_activity_maps_casas_por_vecindario" />
+        <activity android:name=".BorrarVecindario" />
+        <activity
+            android:name=".MapsBorrarVecindario"
+            android:label="@string/title_activity_maps_borrar_vecindario" />
+        <activity android:name=".BorrarCasasVecindarios" />
+        <activity android:name=".BorrarCasa" />
+        <activity android:name=".BorrarCasita"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.pablo.proyectoseminario;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -10,8 +11,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -24,10 +27,9 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -39,7 +41,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
 
     /**
      * Manipulates the map once available.
@@ -53,6 +54,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        UiSettings uiSettings;
+        uiSettings = mMap.getUiSettings();
+        uiSettings.setZoomControlsEnabled(true);
+        UiSettings uiSetting = mMap.getUiSettings();
+        uiSetting.setMyLocationButtonEnabled(true);
+        //uiSetting.setMyLocationButtonEnabled(true);
+
         AsyncHttpClient client = new AsyncHttpClient();
         String url = ParamsConnection.HOST;
         client.get(url, new JsonHttpResponseHandler() {
@@ -71,7 +79,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         JSONArray listGallery = itemJson.getJSONArray("gallery");
                         ArrayList<String> urllist =  new ArrayList<String>();
                         for (int j = 0; j < listGallery.length(); j ++) {
-                            urllist.add("http://192.168.43.109:7777" + listGallery.getString(j));
+                            urllist.add(ParamsConnection.HOST2 + listGallery.getString(j));
                         }
                         ItemList item = new ItemList(id, precio, direccion, lat, lon, urllist);
 
@@ -80,12 +88,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     if (ParamsConnection.LISTDATA != null && ParamsConnection.LISTDATA.size() > 0) {
                         for (int i = 0; i < ParamsConnection.LISTDATA.size(); i++) {
                             LatLng position = new LatLng(ParamsConnection.LISTDATA.get(i).getLat(), ParamsConnection.LISTDATA.get(i).getLon());
-
-                            //mMap.addMarker(new MarkerOptions().position(position).title(LISTINFO.get(i).getDireccion()));
                             mMap.addMarker(new MarkerOptions()
                                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.casa))
                                     .position(position).title(ParamsConnection.LISTDATA.get(i).getDireccion()));
-
                         }
                     }
 
@@ -98,5 +103,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng potosi = new LatLng(-19.578297, -65.758633);
         //mMap.addMarker(new MarkerOptions().position(potosi).title("Marker in Potosi"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(potosi,14));
+        mMap.setOnMarkerClickListener(this);
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        //marker.equals(ParamsConnection.LISTDATA);
+        LatLng n = marker.getPosition();
+        for (int i=0; i<ParamsConnection.LISTDATA.size(); i++) {
+            LatLng m = new LatLng(ParamsConnection.LISTDATA.get(i).getLat(), ParamsConnection.LISTDATA.get(i).getLon());
+            if (n.equals(m)) {
+                //String idC = ParamsConnection.LISTDATA.get(i).getIdC();
+                Intent mDetaild = new Intent(this, Detalle.class);
+                mDetaild.putExtra("id", i);
+                this.startActivity(mDetaild);
+            }
+        }
+        return true;
     }
 }

@@ -22,7 +22,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class RegistrarCasa extends AppCompatActivity implements View.OnClickListener{
 
-    TextView editTextid, editTextcanthabit, editTextcantbaños, editTextsuperficie, editTextprecio, editTextaño, editTextdescripcion, editTextdireccion, editTextlat, editTextlon;
+    TextView editTextcanthabit, editTextcantbaños, editTextsuperficie, editTextprecio, editTextaño, editTextdescripcion, editTextdireccion;
     Button buttonagregar;
     private Context root;
     @Override
@@ -48,8 +48,6 @@ public class RegistrarCasa extends AppCompatActivity implements View.OnClickList
         editTextaño = (TextView)this.findViewById(R.id.editTextaño);
         editTextdescripcion = (TextView)this.findViewById(R.id.editTextdescripcion);
         editTextdireccion = (TextView)this.findViewById(R.id.editTextdireccion);
-        editTextlat = (TextView)this.findViewById(R.id.editTextlat);
-        editTextlon = (TextView)this.findViewById(R.id.editTextlon);
 
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -61,8 +59,6 @@ public class RegistrarCasa extends AppCompatActivity implements View.OnClickList
         params.put("año", editTextaño.getText());
         params.put("descripcion", editTextdescripcion.getText());
         params.put("direccion", editTextdireccion.getText());
-        params.put("lat", editTextlat.getText());
-        params.put("lon", editTextlon.getText());
 
         client.post(ParamsConnection.HOST, params, new JsonHttpResponseHandler(){
             @Override
@@ -73,7 +69,7 @@ public class RegistrarCasa extends AppCompatActivity implements View.OnClickList
                     UserData.ID = id;
                     if (msn != null) {
 
-                        Intent camera = new Intent(root, Camara.class);
+                        Intent camera = new Intent(root, DentroVecindario.class);
                         root.startActivity(camera);
                     } else {
                         Toast.makeText(root, "ERROR AL enviar los datos", Toast.LENGTH_LONG).show();

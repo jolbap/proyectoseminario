@@ -4,24 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Camara">
+    tools:context=".Camara"
+    android:background="#FF00E238">
 
     <Button
         android:id="@+id/btnmedia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:drawableRight="@android:drawable/ic_menu_gallery"
         android:text="MEDIA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnfoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:drawableRight="@android:drawable/ic_menu_camera"
         android:text="TOMAR FOTO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +36,8 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
-        android:text="ENVIAR"
+        android:drawableRight="@android:drawable/ic_menu_save"
+        android:text="GUARDAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fototomada"
@@ -41,15 +45,17 @@
 
     <ImageView
         android:id="@+id/fototomada"
-        android:layout_width="302dp"
-        android:layout_height="330dp"
+        android:layout_width="373dp"
+        android:layout_height="364dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@drawable/logoreal" />
 
     <Button
         android:id="@+id/btnsalir"
@@ -58,6 +64,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="50dp"
         android:layout_marginTop="8dp"
+        android:drawableRight="@android:drawable/ic_menu_revert"
         android:onClick="salirCamara"
         android:text="SALIR"
         app:layout_constraintBottom_toBottomOf="parent"

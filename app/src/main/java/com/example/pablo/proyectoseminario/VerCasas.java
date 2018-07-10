@@ -80,7 +80,7 @@ public class VerCasas extends AppCompatActivity implements AdapterView.OnItemCli
                         JSONArray listGallery = itemJson.getJSONArray("gallery");
                         ArrayList<String> urllist =  new ArrayList<String>();
                         for (int j = 0; j < listGallery.length(); j ++) {
-                            urllist.add("http://192.168.43.109:7777" + listGallery.getString(j));
+                            urllist.add(ParamsConnection.HOST2 + listGallery.getString(j));
                         }
                         ItemList item = new ItemList(id, precio, direccion, lat, lon, urllist);
 

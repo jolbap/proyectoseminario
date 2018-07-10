@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginCliente">
+    tools:context=".LoginCliente"
+    android:background="#FF00E238">
 
     <com.google.android.gms.common.SignInButton
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:id="@+id/googlebutton"
+        android:layout_width="302dp"
+        android:layout_height="97dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:id="@+id/googlebutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +27,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="50dp"
         android:text="LOGIN CLIENTE"
-        android:textSize="25dp"
+        android:textColor="#5cf1ff"
+        android:textStyle="bold"
+        android:textSize="27dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

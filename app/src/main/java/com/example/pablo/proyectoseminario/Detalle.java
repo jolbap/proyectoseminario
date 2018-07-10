@@ -39,7 +39,7 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
 
     public Button btnmapaescuelas;
     public String idC;
-    protected TextView direccion, canthabit, cantbaños, superficie, precio, año, descripcion;
+    protected TextView direccion, canthabit, cantbaños, superficie, precio, año, descripcion ,nombrevecindario;
     protected Detalle root;
     protected com.example.pablo.proyectoseminario.DataDetaild.Detaild DATA;
     /**
@@ -115,13 +115,14 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
                             String año = response.getString("año");
                             String descripcion = response.getString("descripcion");
                             String direccion = response.getString("direccion");
+                            String nombrevecindario = response.getString("nombrevecindario");
                             JSONArray listGallery = response.getJSONArray("gallery");
                             ArrayList<String> urllist =  new ArrayList<String>();
                             for (int j = 0; j < listGallery.length(); j ++) {
-                                urllist.add("http://192.168.43.109:7777" + listGallery.getString(j));
+                                urllist.add(ParamsConnection.HOST2 + listGallery.getString(j));
                             }
 
-                            DATA = new com.example.pablo.proyectoseminario.DataDetaild.Detaild(idH, canthabit, cantbaños, superficie, precio, año, descripcion, urllist, direccion);
+                            DATA = new com.example.pablo.proyectoseminario.DataDetaild.Detaild(idH, canthabit, cantbaños, superficie, precio, año, descripcion, urllist, direccion, nombrevecindario);
                             root.setInformation();
 
                         } catch (JSONException e) {
@@ -138,7 +139,7 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
         this.precio.setText(DATA.getPrecio()+"");
         this.año.setText(DATA.getAño());
         this.descripcion.setText(DATA.getDescripcion());
-
+        this.nombrevecindario.setText(DATA.getNombrevecindario());
     }
 
     private void loadComponents() {
@@ -149,6 +150,7 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
         this.precio = (TextView)this.findViewById(R.id.precioC);
         this.año = (TextView)this.findViewById(R.id.añoC);
         this.descripcion = (TextView)this.findViewById(R.id.descripcionC);
+        this.nombrevecindario = (TextView)this.findViewById(R.id.nombrevecindarioC);
         //this.fotito = (ImageView)this.findViewById(R.id.fotito);
     }
     @Override
@@ -183,7 +185,7 @@ public class Detalle extends AppCompatActivity implements OnLoadCompleImg,View.O
 
     @Override
     public void onClick(View v) {
-        Intent mapa = new Intent(this,MapaEscuelas.class);
+        Intent mapa = new Intent(this,MapsSchool.class);
         mapa.putExtra("id", idC);
         this.startActivity(mapa);
     }

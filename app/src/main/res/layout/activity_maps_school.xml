@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapsSchool"
+    android:background="#FF00E238">
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapescuelas"
+        android:layout_width="375dp"
+        android:layout_height="471dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnbuscarescuelas"
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:background="#00380e"
+        android:drawableRight="@drawable/escuelita"
+        android:text="BUSCAR ESCUELAS"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapescuelas" />
+
+    <Button
+        android:id="@+id/btnsalirmapaescuelas"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#00380e"
+        android:drawableRight="@android:drawable/ic_menu_revert"
+        android:onClick="salirMapaEscuelas"
+        android:text="SALIR"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnescuelacercana"
+        app:layout_constraintTop_toBottomOf="@+id/mapescuelas" />
+
+    <Button
+        android:id="@+id/btnescuelacercana"
+        android:layout_width="97dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:background="#00380e"
+        android:text="ESCUELA MAS CERCANA"
+        android:textColor="#fff"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnbuscarescuelas"
+        app:layout_constraintTop_toBottomOf="@+id/mapescuelas" />
+</android.support.constraint.ConstraintLayout>

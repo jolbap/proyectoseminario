@@ -72,19 +72,23 @@ public class MainActivity extends AppCompatActivity {
         startActivity(inte);
     }
     public void agente(View v){
-        Intent inte3 = new Intent(this, LoginAgente.class);
+        Intent inte2 = new Intent(this, LoginAgente.class);
+        startActivity(inte2);
+    }
+    public void verCasasPorMapa(View v){
+        Intent inte3 = new Intent(this, MapsActivity.class);
         startActivity(inte3);
     }
-    public void verCasa(View v){
+    public void verCasas(View v){
         Intent inte4 = new Intent(this, VerCasas.class);
         startActivity(inte4);
     }
-    public void maps(View v){
-        Intent inte5 = new Intent(this, MapsActivity.class);
+    public void verCasasPorPrecio(View v){
+        Intent inte5 = new Intent(this, VerCasasPorPrecio.class);
         startActivity(inte5);
     }
-    public void verCasasPorPrecio(View v){
-        Intent inte6 = new Intent(this, VerCasasPorPrecio.class);
+    public void verCasasPorVecindario(View v){
+        Intent inte6 = new Intent(this, VerVecindario.class);
         startActivity(inte6);
     }
     @Override

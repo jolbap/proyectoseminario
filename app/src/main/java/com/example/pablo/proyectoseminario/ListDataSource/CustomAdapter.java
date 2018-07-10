@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class CustomAdapter extends BaseAdapter implements OnLoadCompleImg{
     private Context CONTEXT;
     private ArrayList<ItemList> LIST;
+
     public CustomAdapter (Context contex, ArrayList<ItemList> list) {
         this.CONTEXT = contex;
         this.LIST = list;

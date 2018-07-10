@@ -194,7 +194,7 @@ public class Camara extends AppCompatActivity implements View.OnClickListener{
         }
     }
     public void salirCamara(View v){
-        Intent inte = new Intent(this, MainActivity.class);
+        Intent inte = new Intent(this, FuncionesAgente.class);
         startActivity(inte);
         Toast.makeText(getApplicationContext(),"Casa Registrada",Toast.LENGTH_LONG).show();
     }
